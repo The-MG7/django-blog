@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -134,3 +135,13 @@ LOGIN_REDIRECT_URL = 'blog-home'  # Использовать имя URL-шабл
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+if os.environ.get('VERCEL'):
+    DEBUG = False
+    ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+    
+    # Настройки для статических файлов
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+else:
+    DEBUG = True
+    ALLOWED_HOSTS = []

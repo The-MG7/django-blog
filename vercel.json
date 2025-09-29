@@ -12,7 +12,7 @@
       "dest": "myproject/wsgi.py"
     }
   ],
-  "env": {
+  "venv": {
     "PYTHONPATH": "@"
   }
 }

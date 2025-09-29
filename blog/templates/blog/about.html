@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h1>О нашем блоге</h1>
+        </div>
+        <div class="card-body">
+            <p>Этот блог был создан в качестве учебного проекта для освоения фреймворка Django.</p>
+            <p>Здесь вы можете:</p>
+            <ul>
+                <li>Читать посты других пользователей</li>
+                <li>Создавать свои собственные посты</li>
+                <li>Редактировать и удалять свои посты</li>
+            </ul>
+            <p>Проект включает в себя все основные функции CRUD (Create, Read, Update, Delete) и реализован с использованием:</p>
+            <ul>
+                <li>Django в качестве бэкенд-фреймворка</li>
+                <li>SQLite в качестве базы данных</li>
+                <li>Bootstrap для фронтенда</li>
+                <li>Django-формы для обработки пользовательского ввода</li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

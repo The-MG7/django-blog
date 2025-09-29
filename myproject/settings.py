@@ -136,12 +136,24 @@ LOGIN_REDIRECT_URL = 'blog-home'  # Использовать имя URL-шабл
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+# Настройки для продакшена
+DEBUG = False
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
+
+# Настройки для статических файлов
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Настройки базы данных
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+# Если на Vercel, используем другую конфигурацию
 if os.environ.get('VERCEL'):
+    # Настройки для Vercel
     DEBUG = False
     ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
-    
-    # Настройки для статических файлов
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-else:
-    DEBUG = True
-    ALLOWED_HOSTS = []
